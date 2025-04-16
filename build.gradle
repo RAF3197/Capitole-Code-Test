@@ -1,45 +1,108 @@
 plugins {
-	id 'org.jetbrains.kotlin.jvm' version '1.9.25'
-	id 'org.jetbrains.kotlin.plugin.spring' version '1.9.25'
-	id 'org.springframework.boot' version '3.4.4'
-	id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.25'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.9.25'
+    id 'org.springframework.boot' version '3.4.4'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.jetbrains.kotlin.kapt' version '1.9.25'
+    id 'jacoco'
+    id("info.solidsoft.pitest") version "1.15.0"
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation 'org.jetbrains.kotlin:kotlin-reflect'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-json'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.flywaydb:flyway-core:9.22.3'
+    implementation 'org.postgresql:postgresql:42.7.2'
+    implementation 'org.mapstruct:mapstruct:1.6.3'
+
+    kapt 'org.mapstruct:mapstruct-processor:1.6.3'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-core:4.0.0'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+
+    pitest 'org.pitest:pitest-junit5-plugin:1.2.0'
 }
 
 kotlin {
-	compilerOptions {
-		freeCompilerArgs.addAll '-Xjsr305=strict'
-	}
+    compilerOptions {
+        freeCompilerArgs.addAll '-Xjsr305=strict'
+    }
+}
+
+jacocoTestReport {
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    'com/example/capitolecodetest/CapitoleCodeTestApplicationKt.class',
+                    'com/example/capitolecodetest/DBPopulate.class',
+                    'com/example/capitolecodetest/products/application/enums/**',
+                    'com/example/capitolecodetest/products/domain/contracts/**',
+                    'com/example/capitolecodetest/products/domain/enums/**',
+                    'com/example/capitolecodetest/products/domain/models/**',
+                    'com/example/capitolecodetest/products/infrastructure/entities/ProductEntity.class',
+                    'com/example/capitolecodetest/products/infrastructure/request/**',
+                    'com/example/capitolecodetest/products/infrastructure/response/**',
+                    'com/example/capitolecodetest/products/infrastructure/mappers/ProductMapper*'
+            ])
+        }))
+    }
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
+
+    finalizedBy(tasks.jacocoTestReport, tasks.jacocoTestCoverageVerification)
+}
+
+pitest {
+    pitestVersion = '1.15.0'
+    targetClasses = ['com.example.capitolecodetest.products.*']
+    targetTests = ['com.example.capitolecodetest.*Test']
+    threads = 4
+    outputFormats = ['HTML', 'XML']
+    timeoutFactor = 1.25
+    excludedClasses = [
+            'com.example.capitolecodetest.CapitoleCodeTestApplication',
+            'com.example.capitolecodetest.DBPopulate',
+            'com.example.capitolecodetest.products.application.enums.*',
+            'com.example.capitolecodetest.products.domain.contracts.*',
+            'com.example.capitolecodetest.products.domain.enums.*',
+            'com.example.capitolecodetest.products.domain.models.*',
+            'com.example.capitolecodetest.products.infrastructure.entities.ProductEntity',
+            'com.example.capitolecodetest.products.infrastructure.request.*',
+            'com.example.capitolecodetest.products.infrastructure.response.*',
+            'com.example.capitolecodetest.products.infrastructure.mappers.ProductMapper',
+            'com.example.capitolecodetest.products.infrastructure.mappers.ProductMapperImpl',
+            'kotlin.jvm.internal.Intrinsics.checkNotNullExpressionValue.*'
+    ]
+    excludedMethods = ['kotlin.jvm.internal.Intrinsics.checkNotNullExpressionValue.*']
 }

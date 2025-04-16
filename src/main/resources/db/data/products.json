@@ -1,0 +1,182 @@
+[
+  {
+    "sku": "SKU0001",
+    "price": 19.99,
+    "description": "Wireless Mouse with ergonomic design",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0002",
+    "price": 499.00,
+    "description": "4K Ultra HD Smart TV, 55 inches",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0003",
+    "price": 29.50,
+    "description": "Stainless Steel Water Bottle, 1L",
+    "category": "HOME_KITCHEN"
+  },
+  {
+    "sku": "SKU0004",
+    "price": 15.00,
+    "description": "Cotton T-Shirt, Unisex, Size M",
+    "category": "CLOTHING"
+  },
+  {
+    "sku": "SKU0005",
+    "price": 120.00,
+    "description": "Noise-Cancelling Over-Ear Headphones",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0006",
+    "price": 9.99,
+    "description": "USB-C to USB Adapter",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0007",
+    "price": 75.00,
+    "description": "Leather Wallet with RFID Protection",
+    "category": "ACCESSORIES"
+  },
+  {
+    "sku": "SKU0008",
+    "price": 35.00,
+    "description": "Yoga Mat with Non-Slip Surface",
+    "category": "SPORTS"
+  },
+  {
+    "sku": "SKU0009",
+    "price": 220.00,
+    "description": "Smartwatch with Heart Rate Monitor",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0010",
+    "price": 12.50,
+    "description": "Ceramic Coffee Mug, 350ml",
+    "category": "HOME_KITCHEN"
+  },
+  {
+    "sku": "SKU0011",
+    "price": 60.00,
+    "description": "Bluetooth Portable Speaker",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0012",
+    "price": 85.00,
+    "description": "Backpack with Laptop Compartment",
+    "category": "ACCESSORIES"
+  },
+  {
+    "sku": "SKU0013",
+    "price": 18.00,
+    "description": "Stainless Steel Cutlery Set, 24 Pieces",
+    "category": "HOME_KITCHEN"
+  },
+  {
+    "sku": "SKU0014",
+    "price": 250.00,
+    "description": "Electric Guitar Starter Pack",
+    "category": "MUSICAL_INSTR"
+  },
+  {
+    "sku": "SKU0015",
+    "price": 42.00,
+    "description": "Running Shoes, Men's Size 42",
+    "category": "FOOTWEAR"
+  },
+  {
+    "sku": "SKU0016",
+    "price": 27.99,
+    "description": "Digital Bathroom Scale with Body Fat Analyzer",
+    "category": "HOME_APPLIANCES"
+  },
+  {
+    "sku": "SKU0017",
+    "price": 14.99,
+    "description": "Set of 6 Organic Cotton Socks",
+    "category": "CLOTHING"
+  },
+  {
+    "sku": "SKU0018",
+    "price": 300.00,
+    "description": "DSLR Camera with 18-55mm Lens",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0019",
+    "price": 8.99,
+    "description": "Hardcover Notebook, A5, 200 Pages",
+    "category": "STATIONERY"
+  },
+  {
+    "sku": "SKU0020",
+    "price": 65.00,
+    "description": "Microwave Oven, 20L Capacity",
+    "category": "HOME_APPLIANCES"
+  },
+  {
+    "sku": "SKU0021",
+    "price": 23.50,
+    "description": "LED Desk Lamp with Adjustable Brightness",
+    "category": "HOME_KITCHEN"
+  },
+  {
+    "sku": "SKU0022",
+    "price": 19.00,
+    "description": "Wireless Charger Pad for Smartphones",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0023",
+    "price": 55.00,
+    "description": "Men's Quartz Analog Watch with Leather Strap",
+    "category": "ACCESSORIES"
+  },
+  {
+    "sku": "SKU0024",
+    "price": 30.00,
+    "description": "Wooden Chess Set with Folding Board",
+    "category": "TOYS_GAMES"
+  },
+  {
+    "sku": "SKU0025",
+    "price": 99.00,
+    "description": "Home Security Camera with Night Vision",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0026",
+    "price": 16.50,
+    "description": "Aromatherapy Essential Oil Diffuser",
+    "category": "HOME_KITCHEN"
+  },
+  {
+    "sku": "SKU0027",
+    "price": 40.00,
+    "description": "Professional Blender with 2L Jar",
+    "category": "HOME_APPLIANCES"
+  },
+  {
+    "sku": "SKU0028",
+    "price": 22.00,
+    "description": "Kids' Educational Tablet Toy",
+    "category": "TOYS_GAMES"
+  },
+  {
+    "sku": "SKU0029",
+    "price": 110.00,
+    "description": "Mechanical Gaming Keyboard with RGB Lighting",
+    "category": "ELECTRONICS"
+  },
+  {
+    "sku": "SKU0030",
+    "price": 7.50,
+    "description": "Pack of 10 Ballpoint Pens, Blue Ink",
+    "category": "STATIONERY"
+  }
+]

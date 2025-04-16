@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class CapitoleCodeTestApplication
 
 fun main(args: Array<String>) {
-	runApplication<CapitoleCodeTestApplication>(*args)
+    runApplication<CapitoleCodeTestApplication>(*args)
 }
