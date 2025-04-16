@@ -52,7 +52,19 @@ This project follows the **Hexagonal Architecture (Ports and Adapters)**. This a
 - **DDD-Domain Driven Design**: Business logic is isolated in the `Domain` layer, with clear contracts defined via interfaces.
 - **Infrastructure layer**: Controllers, repositories, and mappers are placed in the `Infrastructure` layer.
 - **Application layer**: Contains use cases and services.
-- **Discounts**: I decided to implement the `DiscountService` following a `Strategy pattern` at the application layer, if these discounts are going to change frequently it would be a good approach to save the discounts in BD. 
+- **Discounts**: I decided to implement the `DiscountService` following a `Strategy pattern` at the application layer, if these discounts are going to change frequently it would be a good approach to save the discounts in BD.
+- **Dependency Injections**: This project uses **constructor-based dependency injection**, which is the recommended approach in Spring Boot.
+
+Spring automatically injects dependencies via constructor injection thanks to annotations like `@Component`, `@Service`, `@Repository`, etc., and component scanning.
+
+**Example:**
+```kotlin
+@Service
+class ProductService(
+    private val productRepository: ProductRepository,
+    private val discountCalculator: DiscountCalculator
+)
+```
 ___
 
 ## ⚙️ Docker Setup
