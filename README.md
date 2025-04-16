@@ -61,7 +61,7 @@ ___
 git clone https://github.com/RAF3197/Capitole-Code-Test.git
 ### 2. 🐳 Run docker-compose
 docker-compose up -d --build
-### 3. 🌍 service deployed
+### 3. 🌍 Service deployed
 http://localhost:8080/
 ___
 
