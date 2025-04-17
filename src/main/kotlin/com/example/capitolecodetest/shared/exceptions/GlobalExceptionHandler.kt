@@ -13,7 +13,19 @@ class GlobalExceptionHandler {
     fun handleInvalidPagination(ex: InvalidPaginationException): ResponseEntity<ErrorMessageModel> {
         val errorMessage = ErrorMessageModel(
             HttpStatus.BAD_REQUEST.value(),
-            ex.message)
+            ex.message
+        )
+        return ResponseEntity
+            .status(HttpStatus.BAD_REQUEST)
+            .body(errorMessage)
+    }
+
+    @ExceptionHandler(InvalidPriceException::class)
+    fun handleInvalidPrice(ex: InvalidPriceException): ResponseEntity<ErrorMessageModel> {
+        val errorMessage = ErrorMessageModel(
+            HttpStatus.BAD_REQUEST.value(),
+            ex.message
+        )
         return ResponseEntity
             .status(HttpStatus.BAD_REQUEST)
             .body(errorMessage)

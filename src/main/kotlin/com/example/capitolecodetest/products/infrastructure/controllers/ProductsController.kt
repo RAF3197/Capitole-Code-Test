@@ -14,11 +14,12 @@ class ProductsController(
     private val products: GetProductsUseCase
 ) {
     @GetMapping
-    fun getProduct(@RequestParam(defaultValue = "0") page: Int,
-                   @RequestParam(defaultValue = "50") size: Int,
-                   @RequestParam(defaultValue = "SKU") sortBy: SortBy,
-                   @RequestParam(defaultValue = "ASC") order: Order,
-                   @RequestParam(required = false)  categoryFilter: List<ProductCategory>?
+    fun getProduct(
+        @RequestParam(defaultValue = "0") page: Int,
+        @RequestParam(defaultValue = "50") size: Int,
+        @RequestParam(defaultValue = "SKU") sortBy: SortBy,
+        @RequestParam(defaultValue = "ASC") order: Order,
+        @RequestParam(required = false) categoryFilter: List<ProductCategory>?
     ): List<ProductResponse> {
         return products(
             page,
